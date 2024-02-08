@@ -6,15 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
 
-        body{
+        :root{
+            --theme-color: #182e45;
+        }
+
+        body {
             margin: 0;
         }
 
-        header{
+        header {
             background-image: url('https://pixewall.com/wp-content/uploads/2023/12/4k-Ultra-HD-Landscape-Wallpaper-scaled.jpg');
             color: white;
             height: 70vh;
@@ -24,20 +34,54 @@
             box-sizing: border-box;
         }
 
-        .hero-title{
+        .hero-title {
             margin: 0;
             font-family: Roboto;
         }
 
-        .hero-subtitle{
+        .hero-subtitle {
             /* text-align: center; */
             font-family: Roboto;
         }
 
-        .hero-btn{
-            /* text-align: center; */
+        .hero-btn {
+            padding: 10px 20px;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
         }
 
+        .feature-card {
+            /* border: 2px solid red; */
+            text-align: center;
+            padding: 50px;
+            transition-duration: 0.3s;
+            border-radius: 10px;
+        }
+
+        .feature-card:hover{
+            background-color: var(--theme-color);
+            color: white;
+        }
+
+        .section-features {
+            /* display: flex; */
+            font-family: Roboto;
+            padding: 50px 300px;
+
+            color: var(--theme-color);
+
+        }
+
+        .card-container{
+            display: flex;
+            gap: 30px;
+        }
+
+        .section-title{
+            text-align: center;
+            font-size: 3rem;
+        }
     </style>
 
 </head>
@@ -46,12 +90,40 @@
 
     <header>
         <h1 class="hero-title" style="text-align: center; font-size: 4rem;">Welcome to my site</h1>
-        <h3 class="hero-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quod doloribus architecto sunt beatae dolor optio ullam quia aut! Magnam.</h3>
+        <h3 class="hero-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quod doloribus
+            architecto sunt beatae dolor optio ullam quia aut! Magnam.</h3>
         <button class="hero-btn">Learn More</button>
     </header>
 
     <main>
+        <section class="section-features">
+            <h2 class="section-title">Our Features</h2>
 
+            <div class="card-container">
+
+                <div class="feature-card">
+                    <i class="fa-5x fa-solid fa-rocket"></i>
+                    <h3>Fast Delivery</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aliquam fuga adipisci quis
+                        repellat quo iste possimus facilis harum nihil.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-5x fa-solid fa-rocket" ></i>
+                    <h3>Fast Delivery</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aliquam fuga adipisci quis
+                        repellat quo iste possimus facilis harum nihil.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-5x fa-solid fa-rocket"></i>
+                    <h3>Fast Delivery</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aliquam fuga adipisci quis
+                        repellat quo iste possimus facilis harum nihil.</p>
+                </div>
+
+            </div>
+
+
+        </section>
     </main>
 
     <footer>
