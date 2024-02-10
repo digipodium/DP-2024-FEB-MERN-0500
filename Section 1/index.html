@@ -14,9 +14,10 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <style>
+    <link rel="stylesheet" href="style.css">
 
-        :root{
+    <style>
+        :root {
             --theme-color: #182e45;
         }
 
@@ -59,7 +60,7 @@
             border-radius: 10px;
         }
 
-        .feature-card:hover{
+        .feature-card:hover {
             background-color: var(--theme-color);
             color: white;
         }
@@ -73,36 +74,37 @@
 
         }
 
-        .card-container{
+        .card-container {
             display: flex;
             gap: 30px;
         }
 
-        .section-title{
+        .section-title {
             text-align: center;
             font-size: 3rem;
         }
 
-        .section-video{
+        .section-video {
             padding: 50px 300px;
         }
 
-        .section-video video{
-            width:100%;
+        .section-video video {
+            width: 100%;
         }
 
-        .section-contact{
+        .section-contact {
             padding: 50px 300px;
             font-family: Roboto;
         }
 
-        .text-input , .text-input-area {
+        .text-input,
+        .text-input-area {
             width: 100%;
             padding: 10px;
             margin-bottom: 30px;
         }
 
-        .contact-btn{
+        .contact-btn {
             padding: 10px 20px;
             background-color: var(--theme-color);
             color: white;
@@ -110,7 +112,7 @@
             border-radius: 5px;
         }
 
-        footer{
+        footer {
             padding: 50px 300px;
             font-family: Roboto;
             background-color: var(--theme-color);
@@ -120,13 +122,25 @@
             grid-template-columns: 2fr 1fr 1fr;
         }
 
-        .social-link{
+        .social-link {
             color: white;
             display: block;
             margin-bottom: 10px;
             text-decoration: none;
         }
 
+        .my-video {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        /* .video-container{
+            width: 100%;
+        } */
+
+        .video-container video{
+            width: 100%;
+        }
     </style>
 
 </head>
@@ -153,13 +167,13 @@
                         repellat quo iste possimus facilis harum nihil.</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fa-5x fa-solid fa-rocket" ></i>
+                    <i class="fa-5x fa-solid fa-rocket"></i>
                     <h3>Fast Delivery</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aliquam fuga adipisci quis
                         repellat quo iste possimus facilis harum nihil.</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fa-5x fa-solid fa-rocket"></i>
+                    <i class="fa-5x fa-solid fa-rocket" ></i>
                     <h3>Fast Delivery</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aliquam fuga adipisci quis
                         repellat quo iste possimus facilis harum nihil.</p>
@@ -196,17 +210,36 @@
                 <textarea rows="5" class="text-input-area"></textarea>
 
                 <button class="contact-btn">Submit</button>
-                
+
             </form>
 
         </section>
+
+
+        <!-- <section class="my-video">
+            <div class="video-container">
+
+                <video src="video2.mp4" autoplay muted></video>
+            </div>
+
+            <div class="video-container">
+
+                <video src="video3.mp4" autoplay muted></video>
+            </div>
+            <div class="video-container">
+
+                <video src="video4.mp4" autoplay muted></video>
+            </div>
+
+        </section> -->
     </main>
 
     <footer>
 
         <div>
             <h2 class="footer-title">My Website Name</h2>
-            <p>&copy; 2024 Website Name </p>
+            <p> &copy; 2024 Website Name </p>
+            <button class="main-btn white-btn">Get Started</button>
         </div>
 
         <div>
@@ -216,7 +249,9 @@
             <a href="#" class="social-link">LinkedIn</a>
             <a href="#" class="social-link">X(Twitter)</a>
         </div>
-        
+
+
+
         <div>
             <h3>Visit Us at:</h3>
             <a href="#" class="social-link">Facebook</a>
