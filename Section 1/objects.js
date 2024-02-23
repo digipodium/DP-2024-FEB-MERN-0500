@@ -67,3 +67,22 @@ console.log(phoneList);
 // find sum of all prices
 // get models of all smartphones in an array
 // [ 'Galaxy M31', '12', 'Z7 Pro', 'V9' ]
+
+let totalPrice = 0;
+
+for(let phone of phoneList){
+    // console.log(phone.price);
+    totalPrice += phone.price;
+}
+    
+console.log(totalPrice);
+
+let models = [];
+
+for(let phone of phoneList){
+    // console.log(phone.model);
+    console.log(models);
+    models.push(phone.model);
+}
+
+console.log(models);
