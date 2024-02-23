@@ -63,3 +63,7 @@ console.log(phoneList.length);
 console.log(phoneList[1].price);
 phoneList[phoneList.length-1].model = 'V9';
 console.log(phoneList);
+
+// find sum of all prices
+// get models of all smartphones in an array
+// [ 'Galaxy M31', '12', 'Z7 Pro', 'V9' ]
