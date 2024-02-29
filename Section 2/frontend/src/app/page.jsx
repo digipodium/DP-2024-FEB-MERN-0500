@@ -21,9 +21,7 @@ const Home = () => {
         {siteTitle}
       </h1>
       <h4>{num1 * num2}</h4>
-
       <p>{addNums(56, 29)}</p>
-
       <hr />
 
       <input type="text" />
