@@ -12,7 +12,7 @@ const Home = () => {
   }
 
   const addNums = (a, b) => {
-    return a+b;
+    return a + b;
   }
 
   return (
