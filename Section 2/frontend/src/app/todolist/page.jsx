@@ -20,7 +20,6 @@ const TodoList = () => {
             e.target.value = '';
 
         }
-
     }
 
     const deleteTask = (index) => {
