@@ -1,8 +1,29 @@
+'use client';
 import React from 'react';
 import classes from './login.module.css'
 import Link from 'next/link';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+
+const loginValidationSchema = Yup.object().shape({
+    email: Yup.string().email('Invalid Email').required('Email is Required'),
+    password : Yup.string().required('Password is Required')
+});
 
 const Login = () => {
+
+    const loginForm = useFormik({
+        initialValues: {
+            email : '',
+            password : ''
+        },
+        onSubmit : (values) => {
+            console.log(values);
+            // send data to backend
+        },
+        validationSchema: loginValidationSchema
+    })
+
     return (
         <div className='vh-100 bg-primary-subtle d-flex align-items-center'>
             <section className="container">
@@ -27,27 +48,37 @@ const Login = () => {
                                 <div className="card shadow">
                                     <div className="card-body py-5 px-md-5">
                                         <h4 className='text-center fw-bold text-primary my-4'>Login To Continue</h4>
-                                        <form>
+                                        <form onSubmit={ loginForm.handleSubmit }>
                                             {/* 2 column grid layout with text inputs for the first and last names */}
-                                            <div class="mb-3">
-                                                <label for="" class="form-label">Email Address</label>
+                                            <div className="mb-3">
+                                                <label for="" className="form-label">Email Address *</label>
                                                 <input
                                                     type="text"
                                                     id="email"
-                                                    class="form-control"
+                                                    onChange={ loginForm.handleChange }
+                                                    value={loginForm.values.email}
+                                                    className="form-control"
                                                     placeholder=""
                                                 />
-                                                <small class="text-muted">Enter Valid Email</small>
+                                                {
+                                                    loginForm.touched.email &&
+                                                    <small className="text-danger">{loginForm.errors.email}</small>
+                                                }
                                             </div>
                                             <div class="mb-3">
-                                                <label for="" class="form-label">Password</label>
+                                                <label for="" className="form-label">Password</label>
                                                 <input
                                                     type="password"
                                                     id="password"
-                                                    class="form-control"
+                                                    onChange={ loginForm.handleChange }
+                                                    value={loginForm.values.password}
+                                                    className="form-control"
                                                     placeholder=""
                                                 />
-                                                <small class="text-muted">Enter Valid Password</small>
+                                                {
+                                                    loginForm.touched.password &&
+                                                    <small className="text-danger">{loginForm.errors.password}</small>
+                                                }
                                             </div>
 
                                             <div className="form-check mb-4">
