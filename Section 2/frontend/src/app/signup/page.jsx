@@ -14,6 +14,7 @@ const Signup = () => {
     .matches(/[a-z]/, 'Password must contain lowercase letter')
     .matches(/[0-9]/, 'Password must contain number'),
     confirmPassword: Yup.string().required('Confirm Password is Required')
+    .oneOf([Yup.ref('password'), null], 'Passwords must match')
   });
 
   const signupForm = useFormik({
@@ -23,8 +24,9 @@ const Signup = () => {
       password: '',
       confirmPassword: ''
     },
-    onSubmit: (values) => {
+    onSubmit: (values, {resetForm}) => {
       console.log(values);
+      resetForm();
     },
     validationSchema: signupValidationSchema
   });
