@@ -1,7 +1,34 @@
+'use client';
+import { useFormik } from 'formik';
 import Link from 'next/link';
 import React from 'react'
+import * as Yup from 'yup';
 
 const Signup = () => {
+
+  const signupValidationSchema = Yup.object().shape({
+    name: Yup.string().required('Name is Required').min(3, 'Name is Too Short'),
+    email: Yup.string().email('Invalid Email').required('Email is Required'),
+    password: Yup.string().required('Password is Required').min(6, 'Password is Too Short')
+    .matches(/[A-Z]/, 'Password must contain uppercase letter' )
+    .matches(/[a-z]/, 'Password must contain lowercase letter')
+    .matches(/[0-9]/, 'Password must contain number'),
+    confirmPassword: Yup.string().required('Confirm Password is Required')
+  });
+
+  const signupForm = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
+    validationSchema: signupValidationSchema
+  });
+
   return (
     <section className="vh-100 bg-primary-subtle">
       <div className="container py-5 h-100">
@@ -31,47 +58,67 @@ const Signup = () => {
                     <h3 className="mb-5 text-primary fw-bold">
                       Registration Form
                     </h3>
-                    <form>
+                    <form onSubmit={signupForm.handleSubmit}>
 
                       <div class="mb-3">
                         <label for="" class="form-label">Email Address</label>
                         <input
                           type="text"
                           id="email"
+                          onChange={signupForm.handleChange}
+                          value={signupForm.values.email}
                           class="form-control"
                           placeholder=""
                         />
-                        <small class="text-muted">Enter Valid Email Address</small>
+                        {
+                          signupForm.touched.email &&
+                          <small class="text-danger">{signupForm.errors.email}</small>
+                        }
                       </div>
                       <div class="mb-3">
                         <label for="" class="form-label">Name</label>
                         <input
                           type="text"
                           id="name"
+                          onChange={signupForm.handleChange}
+                          value={signupForm.values.name}
                           class="form-control"
                           placeholder=""
                         />
-                        <small class="text-muted">Enter Full Name</small>
+                        {
+                          signupForm.touched.name &&
+                          <small class="text-danger">{signupForm.errors.name}</small>
+                        }
                       </div>
                       <div class="mb-3">
                         <label for="" class="form-label">Password</label>
                         <input
-                          type="password"
+                          type="text"
                           id="password"
+                          onChange={signupForm.handleChange}
+                          value={signupForm.values.password}
                           class="form-control"
                           placeholder=""
                         />
-                        <small class="text-muted">Enter Strong Password</small>
+                        {
+                          signupForm.touched.password &&
+                          <small class="text-danger">{signupForm.errors.password}</small>
+                        }
                       </div>
                       <div class="mb-3">
                         <label for="" class="form-label">Confirm Password</label>
                         <input
                           type="password"
-                          id="cpassword"
+                          id="confirmPassword"
+                          onChange={signupForm.handleChange}
+                          value={signupForm.values.confirmPassword}
                           class="form-control"
                           placeholder=""
                         />
-                        <small class="text-muted">Passwords Must Match</small>
+                        {
+                          signupForm.touched.confirmPassword &&
+                          <small class="text-danger">{signupForm.errors.confirmPassword}</small>
+                        }
                       </div>
                       <div className="form-check mb-4">
                         <input
