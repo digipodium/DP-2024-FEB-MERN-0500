@@ -14,6 +14,14 @@ const UploadPost = () => {
         },
         onSubmit: (values) => {
             console.log(values);
+
+            // sending request to backend
+
+            fetch('http://localhost:5000/post/add', {
+                method: 'POST',
+                body : JSON.stringify(values) // convert js to json
+            })
+
         }
     })
 
@@ -72,7 +80,7 @@ const UploadPost = () => {
 
                                 <label for="" class="form-label">Image</label>
                                 <input
-                                    type="file"
+                                    type="text"
                                     id="image"
                                     onChange={postForm.handleChange}
                                     value={postForm.values.image}
