@@ -1,6 +1,7 @@
 'use client';
 import { IconHeart, IconTrash } from '@tabler/icons-react';
 import React, { useEffect, useState } from 'react'
+import toast from 'react-hot-toast';
 
 const Feed = () => {
 
@@ -34,9 +35,28 @@ const Feed = () => {
                 if (response.status === 200) {
                     console.log('post deleted');
                     fetchPostData();
+                    toast.success('Post Deleted Successfully');
                 }
             })
             .catch((err) => {
+                console.log(err);
+            });
+    }
+
+    const updatePost = (id, dataToUpdate) => {
+        fetch('http://localhost:5000/post/update/' + id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataToUpdate)
+        })
+            .then((response) => {
+                if (response.status === 200) {
+                    fetchPostData();
+                    toast.success('Post was Liked');
+                }
+            }).catch((err) => {
                 console.log(err);
             });
     }
@@ -57,10 +77,10 @@ const Feed = () => {
                                         <IconTrash />
                                     </button>
                                 </div>
-                                <img className='card-img-top' src={post.image} alt="" />
+                                <img onDoubleClick={() => updatePost(post._id, {likes : post.likes+1})} className='card-img-top' src={post.image} alt="" />
                                 <div className='card-footer'>
                                     <div className='d-flex g-4'>
-                                        <button className='btn btn-outline-primary w-100'>{post.likes} <IconHeart /> </button>
+                                        <button className='btn btn-outline-primary w-100' onClick={  () => updatePost(post._id, {likes : post.likes+1}) }>{post.likes} <IconHeart /> </button>
                                         <button className='btn btn-outline-primary w-100'>{post.shares} Share</button>
                                     </div>
                                 </div>
