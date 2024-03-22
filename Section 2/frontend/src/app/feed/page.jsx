@@ -73,7 +73,7 @@ const Feed = () => {
                             return <div key={post._id} className='card shadow mb-5' >
                                 <div className='card-header d-flex justify-content-between'>
                                     <h4>{post.title}</h4>
-                                    <button className='btn btn-danger' onClick={() => { deletePost(post._id) }} >
+                                    <button className='btn btn-danger' onClick={() => { deletePost(post._id); }} >
                                         <IconTrash />
                                     </button>
                                 </div>
